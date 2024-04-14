@@ -5,7 +5,7 @@
 /* Styles */
 body {
   font-family: "Plus Jakarta Sans";
-  color: #5e6282;
+  color: #ba0c0c;
 }
 .wrapper {
   min-height: 100%;
@@ -15,6 +15,7 @@ body {
 }
 main {
   flex-grow: 1;
+  background-color: wheat;
 }
 [class*="__container"] {
   max-width: 1230px;
@@ -135,6 +136,26 @@ nav .fa {
   }
 }
 /* components */
+#to_do_list{  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titel{
+  font-size: 2.5rem;
+  margin-bottom: 2vh;
+}
+#inputField{
+  background-color: whitesmoke;
+  height: 5vh;
+  width: 40vw;
+}
+.input_container{
+  display: flex;
+  gap:1vw;
+}
+.btn{
+}
 /* _________________footer____________________ */
 footer {
   height: 30%;

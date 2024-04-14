@@ -13,3 +13,12 @@ function hideMenu() {
   faBars.style.display = "block";
 }
 /*---------To-do list ----------*/
+let inputField = document.getElementById("inputField");
+let to_do_list = document.getElementById("to_do_list");
+let submit_btn = document.getElementById("submit_btn");
+function clearContent(){
+    inputField.value="";
+}
+function addNewNote(){
+    to_do_list
+}
