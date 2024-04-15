@@ -90,13 +90,16 @@ nav li:hover::after {
 }
 .hero-btn:hover {
   border: 2px solid black;
-  background: #f98b42;
+  background: #fe7575;
   transition: 0.5s;
 }
 nav .fa {
   display: none;
 }
 @media screen and (max-width: 700px) {
+  header {
+    height: 50vh;
+  }
   nav li::after {
     background: #fefefe;
   }
@@ -106,8 +109,8 @@ nav .fa {
   }
   .nav-links {
     position: absolute;
-    background-color: #f98b42;
-    min-height: 70vh;
+    background-color: #ff7979;
+    min-height: 50vh;
     width: 40vw;
     top: 0;
     right: -40vw;
@@ -141,6 +144,7 @@ main {
     url(/img/bg.jpg);
   background-position: center;
   background-size: cover;
+  height: 100dvh;
 }
 .titel {
   font-size: 2.5rem;
@@ -149,164 +153,57 @@ main {
   justify-content: center;
   display: flex;
 }
-.todo-input {
-  flex: 1;
-  outline: none;
-  padding: 10px 10px 10px 20px;
-  background-color: transparent;
-  border: 2px solid #b13131;
-  border-radius: 30px;
-  color: #eee;
-  font-size: 16px;
-  margin-right: 10px;
-}
-.todo-input::placeholder {
-  color: #ba0c0c;
-  text-align: center;
-}
-.container {
-  height: auto;
-  min-height: 400px;
-  padding: 30px;
-  background: transparent;
-  border: 2px solid #ba0c0c;
-  border-radius: 10px;
-  backdrop-filter: blur(2px);
-}
-.input-container {
+.container{
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-}
-.todo-input {
-  outline: none;
-  padding: 10px;
-  background-color: transparent;
-  border: 2px solid #ba0c0c;
-  border-radius: 30px;
-  color: #da4f4f;
-  text-align: center;
-}
-.todo-input::placeholder {
-  color: #da4f4f;
-  text-align: center;
-}
-.add-button {
-  border: none;
-  background: #ba0c0c;
-  color: #fff;
-  font-size: 35px;
-  cursor: pointer;
-  border-radius: 40px;
-  width: 40px;
-}
-.todo {
-  list-style: none;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: #ba0c0c;
-  border-radius: 5px;
-  margin: 10px 0;
-  padding: 10px 12px;
-  border: 2px solid #ba0c0c;
-  transition: all 0.2s ease;
 }
-.todo:hover {
-  background-color: #f50000;
+.todo-input{
+  padding: 3vh 15vw;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 20px;
 }
-.todo label {
-  cursor: pointer;
-  width: fit-content;
+.fa-plus-circle:before { 
+  font-size: 50px;
+}
+.input-container{
   display: flex;
-  align-items: center;
-  font-family: "Roboto", sans-serif;
-  color: #eee;
 }
-.todo span {
-  padding-left: 20px;
+.add-button:hover{
+  color: #e10e0e;
+}
+.add-button:active{
+  color: #ff1818;
+}
+.todos li{
+  justify-content: center;
+  padding: 1vh 20vw;
+  border: 2px solid #ba0c0c;
+  border-radius: 15px;
+  background-color: #e0c8c8;
+  margin: 10px;
+  color:black;
   position: relative;
-  cursor: pointer;
 }
-span::before {
+.todos li::before{
   content: "";
-  height: 20px;
-  width: 20px;
   position: absolute;
-  margin-left: -30px;
-  border-radius: 100px;
-  border: 2px solid #ba0c0c;
-}
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(/img/unchecked.svg); 
+  background-size: cover;
+  background-position: center;
+  top: 3px;
+  left: 5px;
 
-input[type="checkbox"] {
-  visibility: hidden;
 }
-
-input:checked + span {
+ul li.checked{
   text-decoration: line-through;
 }
-
-.todo:hover input:checked + span::before,
-input:checked + span::before {
-  background: url(./check.svg) 50% 50% no-repeat #ffabab;
-  border-color: white;
-}
-.todo:hover span::before {
-  border-color: #eee;
-}
-.todo .delete-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: #eee;
-  font-size: 24px;
-}
-.todos-container {
-  height: 300px;
-  overflow: overlay;
-}
-.todos-container::-webkit-scrollbar-track {
-  background: rgb(247, 247, 247);
-  border-radius: 20px;
-}
-.todos-container::-webkit-scrollbar {
-  width: 0;
-}
-.todos-container:hover::-webkit-scrollbar {
-  width: 7px;
-}
-.todos-container::-webkit-scrollbar-thumb {
-  background: #d5d5d5;
-  border-radius: 20px;
-}
-.filters {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-}
-.filter {
-  color: #eee;
-  padding: 5px 15px;
-  border-radius: 100px;
-  border: 2px solid #ba0c0c;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-.filter.active,
-.filter:hover {
-  background-color: #b13131;
-}
-.delete-all {
-  display: flex;
-  color: #eee;
-  padding: 7px 15px;
-  cursor: pointer;
-  border-radius: 15px;
-  transition: all 0.2s ease;
-}
-.delete-all:hover {
-  border-radius: 15px;
-  background-color: #ba0c0c;
+ul li.checked::before{
+  background-image: url(/img/checked.svg);
 }
 /* _________________footer____________________ */
 footer {
