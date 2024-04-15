@@ -158,7 +158,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
-.todo-input{
+.inputBox{
   padding: 3vh 15vw;
   border: 2px solid;
   border-radius: 20px;
@@ -176,7 +176,7 @@ main {
 .add-button:active{
   color: #ff1818;
 }
-.todos li{
+.listContainer li{
   justify-content: center;
   padding: 1vh 20vw;
   border: 2px solid #ba0c0c;
@@ -186,7 +186,7 @@ main {
   color:black;
   position: relative;
 }
-.todos li::before{
+.listContainer li::before{
   content: "";
   position: absolute;
   height: 28px;
