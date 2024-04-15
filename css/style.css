@@ -90,13 +90,16 @@ nav li:hover::after {
 }
 .hero-btn:hover {
   border: 2px solid black;
-  background: #f98b42;
+  background: #fe7575;
   transition: 0.5s;
 }
 nav .fa {
   display: none;
 }
 @media screen and (max-width: 700px) {
+  header {
+    height: 50vh;
+  }
   nav li::after {
     background: #fefefe;
   }
@@ -106,8 +109,8 @@ nav .fa {
   }
   .nav-links {
     position: absolute;
-    background-color: #f98b42;
-    min-height: 70vh;
+    background-color: #ff7979;
+    min-height: 50vh;
     width: 40vw;
     top: 0;
     right: -40vw;
@@ -141,6 +144,7 @@ main {
     url(/img/bg.jpg);
   background-position: center;
   background-size: cover;
+  height: 100dvh;
 }
 .titel {
   font-size: 2.5rem;
@@ -149,7 +153,58 @@ main {
   justify-content: center;
   display: flex;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.todo-input{
+  padding: 3vh 15vw;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.fa-plus-circle:before { 
+  font-size: 50px;
+}
+.input-container{
+  display: flex;
+}
+.add-button:hover{
+  color: #e10e0e;
+}
+.add-button:active{
+  color: #ff1818;
+}
+.todos li{
+  justify-content: center;
+  padding: 1vh 20vw;
+  border: 2px solid #ba0c0c;
+  border-radius: 15px;
+  background-color: #e0c8c8;
+  margin: 10px;
+  color:black;
+  position: relative;
+}
+.todos li::before{
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(/img/unchecked.svg); 
+  background-size: cover;
+  background-position: center;
+  top: 3px;
+  left: 5px;
 
+}
+ul li.checked{
+  text-decoration: line-through;
+}
+ul li.checked::before{
+  background-image: url(/img/checked.svg);
+}
 /* _________________footer____________________ */
 footer {
   height: 30%;
