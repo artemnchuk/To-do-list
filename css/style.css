@@ -91,6 +91,7 @@ nav li:hover::after {
 .hero-btn:hover {
   border: 2px solid black;
   background: #fe7575;
+  color: white;
   transition: 0.5s;
 }
 nav .fa {
@@ -155,11 +156,19 @@ main {
 }
 .container{
   display: flex;
+  padding: 3vh 15vw;
+  margin: auto;
+  width: 80vw;
+  min-height: 60vh;
+  background-color: white;
+  border: 2px solid;
+  border-radius: 15px;
   flex-direction: column;
   align-items: center;
+
 }
 .inputBox{
-  padding: 3vh 15vw;
+  width: 60vw;
   border: 2px solid;
   border-radius: 20px;
   font-size: 20px;
@@ -177,33 +186,59 @@ main {
   color: #ff1818;
 }
 .listContainer li{
-  justify-content: center;
-  padding: 1vh 20vw;
-  border: 2px solid #ba0c0c;
+  padding: 2.5vh 4vw;
   border-radius: 15px;
-  background-color: #e0c8c8;
   margin: 10px;
-  color:black;
+  color:#ff1818;
+  font-size: 30px;
   position: relative;
 }
 .listContainer li::before{
   content: "";
   position: absolute;
-  height: 28px;
-  width: 28px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   background-image: url(/img/unchecked.svg); 
   background-size: cover;
   background-position: center;
-  top: 3px;
-  left: 5px;
-
+  top:2vh;
+  left:-5px;
 }
 ul li.checked{
   text-decoration: line-through;
 }
 ul li.checked::before{
   background-image: url(/img/checked.svg);
+}
+ul li span{
+  position: absolute;
+  right: -2.5vw;
+  top: 1vh;
+  width: 50px;
+  font-size: 50px;
+  text-align: center;
+  color: black;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+ul li span:hover{
+  background-color: rgba(128, 128, 128, 0.77);
+  
+}
+@media screen and (max-width: 700px) {
+  .listContainer li::before{
+    height: 30px;
+    width: 30px;
+    top:2.2vh;
+    left:-2.5vw;
+  }
+  .listContainer li{
+    font-size: 25px;
+  }
+  ul li span{
+    right: -4.5vw;
+  }
 }
 /* _________________footer____________________ */
 footer {

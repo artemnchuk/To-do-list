@@ -33,17 +33,16 @@
       </div>
     </header>
     <main class="page">
-      <section class="container ">
+      <section class="container">
         <label class="titel">To-do List</label>
           <div class="input-container">
-            <input id="inputBox" class="inputBox" placeholder="Add a new task...">
-            <button class="btn add-button" onclick="addTask()">
+            <input id="inputBox" class="inputBox" placeholder="Add a new task..." maxlength="20">
+            <button type=submit class="btn add-button" onclick="addTask()">
               <i class="fa fa-plus-circle"></i>
             </button>
           </div>
           <div class="todos-container">
             <ul id="listContainer" class="listContainer">
-
             </ul>
           </div>
       </section>
