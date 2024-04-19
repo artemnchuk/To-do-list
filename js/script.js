@@ -15,6 +15,17 @@ function hideMenu() {
 inputBox = document.getElementById("inputBox");
 const listContainer = document.getElementById("listContainer");
 
+// function addUlBox() {
+//     if (inputBox.value === "") {
+//       alert("You must write something!");
+//     } else {
+//       let ul = document.createElement("ul");
+//       ul.innerHTML = inputBox.value;
+//       listContainer.appendChild(ul);
+//     }
+//     inputBox.value = "";
+//     saveData();
+//   }
 function addTask() {
   if (inputBox.value === "") {
     alert("You must write something!");
