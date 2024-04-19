@@ -27,7 +27,7 @@ main {
 header {
   height: 35vh;
   width: 100%;
-  background-color: #ffabab;
+  background-image: url();
 }
 nav {
   display: flex;
