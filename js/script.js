@@ -31,7 +31,7 @@ function addTask() {
     alert("You must write something!");
   } else {
     let li = document.createElement("li");
-    li.innerHTML = inputBox.value;
+    li.innerHTML = inputBox.value.charAt(0).toUpperCase()+inputBox.value.slice(1);
     listContainer.appendChild(li);
     let span = document.createElement("span");
     span.innerHTML= "\u00d7";

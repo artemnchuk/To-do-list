@@ -5,7 +5,7 @@
 /* Styles */
 body {
   font-family: "Plus Jakarta Sans";
-  color: #ba0c0c;
+  color: #EEEEEE;
 }
 .wrapper {
   min-height: 100%;
@@ -25,9 +25,11 @@ main {
 }
 /*header*/
 header {
-  height: 35vh;
-  width: 100%;
-  background-image: url();
+  height: 50dvh;
+  background: url(/img/bg-header.svg);
+  background-position: center;
+  background-repeat:repeat;
+
 }
 nav {
   display: flex;
@@ -59,7 +61,7 @@ nav li::after {
   content: "";
   width: 0%;
   height: 2px;
-  background: #f44336;
+  background: #222831;
   display: block;
   margin: auto;
   transition: 0.5s;
@@ -89,8 +91,8 @@ nav li:hover::after {
   cursor: pointer;
 }
 .hero-btn:hover {
-  border: 2px solid black;
-  background: #fe7575;
+  border: 2px solid ;
+  background: #00ADB5;
   color: white;
   transition: 0.5s;
 }
@@ -102,7 +104,7 @@ nav .fa {
     height: 50vh;
   }
   nav li::after {
-    background: #fefefe;
+    background: #222831;
   }
   nav ul {
     flex-direction: column;
@@ -110,9 +112,10 @@ nav .fa {
   }
   .nav-links {
     position: absolute;
-    background-color: #ff7979;
+    background-color: #00ADB5;
     min-height: 50vh;
     width: 40vw;
+    border-bottom-left-radius: 100%;
     top: 0;
     right: -40vw;
     text-align: left;
@@ -141,37 +144,42 @@ nav .fa {
 }
 /* components */
 main {
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.8)),
-    url(/img/bg.jpg);
+  background: url(/img/bg-list.svg);
   background-position: center;
   background-size: cover;
-  height: 100dvh;
+  background-repeat:repeat;
+  min-height: 100dvh;
 }
-.titel {
+.toDoSection{
+  margin: 20px auto;
+  width: 80vw;
+}
+.label {
+  display: flex;
+  justify-content: center;
   font-size: 2.5rem;
   margin-bottom: 2vh;
-  text-align: center;
-  justify-content: center;
-  display: flex;
 }
-.container{
+.listDiv{
+  margin: 20px 0;
   display: flex;
-  padding: 3vh 15vw;
-  margin: auto;
-  width: 80vw;
-  min-height: 60vh;
+  padding: 2vw;
   background-color: white;
   border: 2px solid;
   border-radius: 15px;
   flex-direction: column;
-  align-items: center;
-
+}
+.toDoInput{
+  display: flex;
+  justify-content: center
 }
 .inputBox{
   width: 60vw;
   border: 2px solid;
   border-radius: 20px;
   font-size: 20px;
+  color:#222831;
+  padding: 2vh 2vw;
 }
 .fa-plus-circle:before { 
   font-size: 50px;
@@ -179,17 +187,22 @@ main {
 .input-container{
   display: flex;
 }
-.add-button:hover{
-  color: #e10e0e;
+.addButton{
+  color:#c4c4c4;
 }
-.add-button:active{
-  color: #ff1818;
+.addButton:hover{
+  color: #e1e1e1;
+  box-shadow: 0 0 3px 3px #222831;
+  border-radius: 50%;
+}
+.addButton:active{
+  color: #ffffff;
 }
 .listContainer li{
   padding: 2.5vh 4vw;
   border-radius: 15px;
   margin: 10px;
-  color:#ff1818;
+  color: #222831;
   font-size: 30px;
   position: relative;
 }
@@ -227,6 +240,9 @@ ul li span:hover{
   
 }
 @media screen and (max-width: 700px) {
+  .listDiv{
+    padding: 2vw;
+  }
   .listContainer li::before{
     height: 30px;
     width: 30px;
@@ -246,16 +262,16 @@ footer {
   text-align: center;
   min-width: 100vw;
   padding: 10px 0;
-  background-color: #ffabab;
+  background-color: #00ADB5;
 }
 footer p {
   margin: 5px;
-  color: grey;
+  color: 393E46;
 }
 footer a {
   background: #d5d5d5;
   border-radius: 50%;
-  color: #ba0c0c;
+  color: #00ADB5;
   padding: 10px;
 }
 footer i {
