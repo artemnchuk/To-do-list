@@ -171,7 +171,8 @@ main {
 }
 .toDoInput{
   display: flex;
-  justify-content: center
+  justify-content: center;
+  gap:5px;
 }
 .inputBox{
   width: 60vw;
@@ -181,7 +182,7 @@ main {
   color:#222831;
   padding: 2vh 2vw;
 }
-.fa-plus-circle:before { 
+.fa:before { 
   font-size: 50px;
 }
 .input-container{
@@ -192,7 +193,7 @@ main {
 }
 .addButton:hover{
   color: #e1e1e1;
-  box-shadow: 0 0 3px 3px #222831;
+  /* box-shadow: 0 0 3px 3px #222831; */
   border-radius: 50%;
 }
 .addButton:active{
@@ -252,8 +253,16 @@ ul li span:hover{
   .listContainer li{
     font-size: 25px;
   }
+  .inputBox{
+    width: 55vw;
+    font-size: 18px;
+    padding: 1.5vh 2vw;
+  }
   ul li span{
     right: -4.5vw;
+  }
+  .fa:before { 
+    font-size: 35px;
   }
 }
 /* _________________footer____________________ */
