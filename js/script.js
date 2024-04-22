@@ -14,18 +14,16 @@ function hideMenu() {
 /*---------To-do list ----------*/
 inputBox = document.getElementById("inputBox");
 const listContainer = document.getElementById("listContainer");
+const listDiv = document.getElementById("listDiv");
 
-// function addUlBox() {
-//     if (inputBox.value === "") {
-//       alert("You must write something!");
-//     } else {
-//       let ul = document.createElement("ul");
-//       ul.innerHTML = inputBox.value;
-//       listContainer.appendChild(ul);
-//     }
-//     inputBox.value = "";
-//     saveData();
-//   }
+let i = 1;
+function addUlBox() {
+      i+=0.5;//30vw
+      inputBox.style.width="60vw"
+      let temp = Number(inputBox.style.width.substring(0,2));
+      listContainer.style.width = `${temp/i}vw`;
+      console.log(i);
+  }
 function addTask() {
   if (inputBox.value === "") {
     alert("You must write something!");
