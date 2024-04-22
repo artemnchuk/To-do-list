@@ -15,6 +15,7 @@ function hideMenu() {
 inputBox = document.getElementById("inputBox");
 const listContainer = document.getElementById("listContainer");
 const listDiv = document.getElementById("listDiv");
+const toDoSection = document.getElementById("toDoSection");
 
 // let i = 1;
 // function addUlBox() {
