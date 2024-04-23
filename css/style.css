@@ -197,8 +197,8 @@ main {
 }
 .addButton:hover{
   color: #e1e1e1;
-  /* box-shadow: 0 0 3px 3px #222831; */
   border-radius: 50%;
+  filter: drop-shadow(4px 4px black);
 }
 .addButton:active{
   color: #ffffff;
