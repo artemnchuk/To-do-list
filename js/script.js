@@ -16,7 +16,6 @@ inputBox = document.getElementById("inputBox");
 const listContainer = document.getElementById("listContainer");
 const listContainer2 = document.getElementById("listContainer2");
 const listDiv = document.getElementById("listDiv");
-const toDoSection = document.getElementById("toDoSection");
 
 let i = 1;
 function addUlBox() {
