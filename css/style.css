@@ -152,7 +152,7 @@ main {
 }
 .toDoSection{
   margin: 20px auto;
-  width: 80vw;
+  min-width: 80vw;
 }
 .label {
   display: flex;
@@ -161,12 +161,11 @@ main {
   margin-bottom: 2vh;
 }
 .listDiv{
-  width: max-content;
-  gap: 15px;
+  flex-wrap: wrap;
   margin: 20px 0;
   display: flex;
   padding: 2vw;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row;
 }
 .listDiv ul{
@@ -204,11 +203,11 @@ main {
   color: #ffffff;
 }
 .listContainer{
-  font-size: 30px;
+  font-size: 24px;
   background-color: white;
 }
 .listContainer li{
-  padding: 2.5vh 4vw;
+  padding: 30px 4vw;
   border-radius: 15px;
   margin: 10px;
   color: #222831;
@@ -223,8 +222,8 @@ main {
   background-image: url(/img/unchecked.svg); 
   background-size: cover;
   background-position: center;
-  top:2vh;
-  left:-5px;
+  top:25px;
+  left:0px;
 }
 ul li.checked{
   text-decoration: line-through;
@@ -234,8 +233,8 @@ ul li.checked::before{
 }
 ul li span{
   position: absolute;
-  right: 1vw;
-  top: 1vh;
+  right: -1vw;
+  top: 15px;
   width: 50px;
   font-size: 50px;
   text-align: center;
@@ -259,12 +258,11 @@ ul li span:hover{
   .listContainer li::before{
     height: 30px;
     width: 30px;
-    top:2.2vh;
-    left:-2.5vw;
+    top:1.2vh;
+    left:-1.5vw;
   }
   .listContainer li{
-    font-size: 18px;
-    
+    font-size: 18px; 
   }
   .inputBox{
     width: 55vw;
@@ -272,7 +270,7 @@ ul li span:hover{
     padding: 1.5vh 2vw;
   }
   ul li span{
-    right: -4.5vw;
+    right: -1.5vw;
   }
   .fa:before { 
     font-size: 35px;

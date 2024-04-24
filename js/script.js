@@ -82,9 +82,6 @@ function showList2(){
   listContainer2.innerHTML=localStorage.getItem("data2");
 }
 showList2();
-      // let span = document.createElement("span");
-      // span.innerHTML= "\u00d7";
-      // li.appendChild(span);
       // i+=0.5;//30vw
       // inputBox.style.width="60vw";
       // listContainer.style.fontSize = "30px";
