@@ -93,3 +93,12 @@ showList2();
       // listContainer.style.width = `${temp/i}vw`;
       // listContainer.style.fontSize = `${tempF/i}px`;
       // console.log(tempF);
+// window tab change
+let docTitle = document.title;
+let faviconImg = document.getElementById("favicon");
+window.addEventListener("blur", () => {document.title = "Come back 👀";
+faviconImg.setAttribute("href","/img/favicon2.png");
+})
+window.addEventListener("focus", () =>{document.title = docTitle;
+faviconImg.setAttribute("href","/img/favicon.png");
+})

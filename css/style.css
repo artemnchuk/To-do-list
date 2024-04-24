@@ -248,6 +248,10 @@ ul li span:hover{
   
 }
 @media screen and (max-width: 700px) {
+  .toDoSection{
+    margin: 20px auto;
+    width: 98vw;
+  }
   .listDiv{
     padding: 2vw;
     flex-direction: column;
@@ -259,7 +263,8 @@ ul li span:hover{
     left:-2.5vw;
   }
   .listContainer li{
-    font-size: 20px;
+    font-size: 18px;
+    
   }
   .inputBox{
     width: 55vw;
