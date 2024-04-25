@@ -82,9 +82,6 @@ function showList2(){
   listContainer2.innerHTML=localStorage.getItem("data2");
 }
 showList2();
-      // let span = document.createElement("span");
-      // span.innerHTML= "\u00d7";
-      // li.appendChild(span);
       // i+=0.5;//30vw
       // inputBox.style.width="60vw";
       // listContainer.style.fontSize = "30px";
@@ -93,3 +90,12 @@ showList2();
       // listContainer.style.width = `${temp/i}vw`;
       // listContainer.style.fontSize = `${tempF/i}px`;
       // console.log(tempF);
+// window tab change
+let docTitle = document.title;
+let faviconImg = document.getElementById("favicon");
+window.addEventListener("blur", () => {document.title = "Come back 👀";
+faviconImg.setAttribute("href","/img/favicon2.png");
+})
+window.addEventListener("focus", () =>{document.title = docTitle;
+faviconImg.setAttribute("href","/img/favicon.png");
+})
