@@ -25,11 +25,10 @@ main {
 }
 /*header*/
 header {
-  height: 50dvh;
-  background: url(/img/bg-header.svg);
+  max-height: 30vh;
+  background-color: #222831;
   background-position: center;
   background-repeat:repeat;
-
 }
 nav {
   display: flex;
@@ -73,7 +72,6 @@ nav li:hover::after {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 40px;
 }
 .text-box h1 {
   font-size: 55px;
@@ -83,7 +81,7 @@ nav li:hover::after {
 }
 
 .hero-btn {
-  max-width: max-content;
+  width: max-content;
   margin: 20px auto;
   border: 2px solid white;
   border-radius: 10px;
@@ -113,10 +111,10 @@ nav .fa {
   .nav-links {
     position: absolute;
     background-color: #00ADB5;
-    min-height: 50vh;
-    width: 40vw;
+    min-height: 30vh;
+    width: 25vw;
     border-bottom-left-radius: 100%;
-    top: 0;
+    top: 0vh;
     right: -40vw;
     text-align: left;
     z-index: 2;
@@ -125,11 +123,11 @@ nav .fa {
   nav .fa {
     display: block;
     color: white;
-    font-size: 22px;
+    font-size: 15px;
     cursor: pointer;
     position: absolute;
     cursor: pointer;
-    top: 1vw;
+    top: 0;
     padding: 5px;
   }
   .fa-bars {
@@ -139,7 +137,11 @@ nav .fa {
     right: 1vw;
   }
   .nav-links ul {
-    padding: 30px;
+    margin: 15 0 0 0px;
+    padding: 35px;
+  }
+  .nav-links li a {
+    padding: 10px;
   }
 }
 /* components */
@@ -207,6 +209,7 @@ main {
   background-color: white;
 }
 .listContainer li{
+  font-family: "Ubuntu", sans-serif;
   padding: 30px 4vw;
   border-radius: 15px;
   margin: 10px;
@@ -244,7 +247,6 @@ ul li span{
 }
 ul li span:hover{
   background-color: rgba(128, 128, 128, 0.77);
-  
 }
 @media screen and (max-width: 700px) {
   .toDoSection{
@@ -258,8 +260,7 @@ ul li span:hover{
   .listContainer li::before{
     height: 30px;
     width: 30px;
-    top:1.2vh;
-    left:-1.5vw;
+    left:-1.8vw;
   }
   .listContainer li{
     font-size: 18px; 
@@ -270,7 +271,8 @@ ul li span:hover{
     padding: 1.5vh 2vw;
   }
   ul li span{
-    right: -1.5vw;
+    top:14px;
+    right: -15px;
   }
   .fa:before { 
     font-size: 35px;
