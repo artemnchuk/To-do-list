@@ -82,15 +82,6 @@ function showList2(){
   listContainer2.innerHTML=localStorage.getItem("data2");
 }
 showList2();
-      // i+=0.5;//30vw
-      // inputBox.style.width="60vw";
-      // listContainer.style.fontSize = "30px";
-      // let temp = Number(inputBox.style.width.substring(0,2));
-      // let tempF = Number(listContainer.style.fontSize.substring(0,2));
-      // listContainer.style.width = `${temp/i}vw`;
-      // listContainer.style.fontSize = `${tempF/i}px`;
-      // console.log(tempF);
-// window tab change
 let docTitle = document.title;
 let faviconImg = document.getElementById("favicon");
 window.addEventListener("blur", () => {document.title = "Come back 👀";
