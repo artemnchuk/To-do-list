@@ -216,6 +216,7 @@ main {
   margin: 10px;
   color: #222831;
   position: relative;
+  word-wrap: break-word;/*think to break words when it sooo long */
 }
 .listContainer li::before{
   content: "";
