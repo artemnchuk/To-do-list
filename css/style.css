@@ -265,16 +265,17 @@ ul li span:hover {
   .listContainer li::before {
     height: 30px;
     width: 30px;
-    left: -1.8vw;
+    left: -1.5vw;
   }
   .listContainer {
-    margin: 20px auto;
+    margin: 10px auto;
   }
   .listContainer li {
     font-size: 18px;
+    width: 80vw;
   }
   .inputBox {
-    width: 55vw;
+    width: 85vw;
     font-size: 18px;
     padding: 1.5vh 2vw;
   }
