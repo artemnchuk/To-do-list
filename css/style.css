@@ -43,6 +43,9 @@ nav {
 .logo a:hover::after {
   width: 100%;
 }
+h2{
+  font-size: 22px;
+}
 nav ul {
   display: flex;
   gap: 40px;
@@ -159,12 +162,11 @@ main {
   margin-bottom: 2vh;
 }
 .listDiv {
-  flex-wrap: wrap;
   margin: 20px 0;
   display: flex;
   padding: 2vw;
-  justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 }
 .listDiv ul {
   border-radius: 15px;
@@ -175,7 +177,8 @@ main {
   gap: 5px;
 }
 .inputBox {
-  width: 60vw;
+  height: max-content;
+  width: 30vw;
   border: 2px solid;
   border-radius: 20px;
   font-size: 20px;
@@ -183,7 +186,7 @@ main {
   padding: 2vh 2vw;
 }
 .fa:before {
-  font-size: 50px;
+  font-size: 100px;
 }
 .input-container {
   display: flex;
@@ -209,8 +212,9 @@ main {
   background-color: white;
 }
 .listContainer li {
+  width: 27vw;
   font-family: "Ubuntu", sans-serif;
-  padding: 30px 4vw;
+  padding: 15px 35px;
   border-radius: 15px;
   margin: 10px;
   color: #222831;
@@ -226,7 +230,7 @@ main {
   background-image: url(/img/unchecked.svg);
   background-size: cover;
   background-position: center;
-  top: 25px;
+  top: 10px;
   left: 0px;
 }
 ul li.checked {
@@ -281,6 +285,12 @@ ul li span:hover {
   .fa:before {
     font-size: 35px;
   }
+}
+.OnlyList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 /* _________________footer____________________ */
 footer {
