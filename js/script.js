@@ -21,13 +21,22 @@ OnlyList.className="OnlyList";
 
 let addButton = document.createElement('button');
 addButton.className="addButton";
-addButton.style.cssText = 'display:block;margin: 0 auto;'
+addButton.style.cssText = 'display:block;margin: 0 auto;';
 let i = document.createElement("i");
 addButton.appendChild(i);
 i.className="fa fa-folder-plus";
-i.style.cssText = 'color: white;'
+i.style.cssText = 'color: white;';
 addButton.addEventListener('click', createToDoList);
 toDoSection.appendChild(addButton);
+
+ 
+function saveData(){
+  localStorage.setItem("data",OnlyList.innerHTML);
+}
+function showList(){
+  OnlyList.innerHTML=localStorage.getItem("data");
+}
+showList();
 
 function createToDoList() {
   let divElement = document.createElement('div');
@@ -45,7 +54,6 @@ function createToDoList() {
   divElement.appendChild(ulElement);
   toDoSection.appendChild(OnlyList);
   OnlyList.appendChild(divElement);
- 
 
   inputElement.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
@@ -55,12 +63,12 @@ function createToDoList() {
               liElement.textContent = task;
               ulElement.appendChild(liElement);
               inputElement.value = '';
-          }
+              saveData();
+          };  saveData();
       }
   });
 }
-
-
+showList();
   let docTitle = document.title;
   let faviconImg = document.getElementById("favicon");
   window.addEventListener("blur", () => {document.title = "Come back 👀";
