@@ -5,7 +5,7 @@
 /* Styles */
 body {
   font-family: "Plus Jakarta Sans";
-  color: #eeeeee;
+  color: #eee;
 }
 .wrapper {
   min-height: 100%;
@@ -95,6 +95,10 @@ nav li:hover::after {
 }
 nav .fa {
   display: none;
+}
+.fa-regular{
+  height: 50px;
+
 }
 @media screen and (max-width: 700px) {
   header {
@@ -242,7 +246,7 @@ ul li.checked::before {
 ul li span {
   position: absolute;
   right: 0vw;
-  top: 15px;
+  top: 0px;
   width: 50px;
   font-size: 50px;
   text-align: center;
@@ -252,6 +256,12 @@ ul li span {
 }
 ul li span:hover {
   background-color: rgba(128, 128, 128, 0.77);
+}
+.OnlyList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 @media screen and (max-width: 700px) {
   .toDoSection {
@@ -272,27 +282,28 @@ ul li span:hover {
   }
   .listContainer li {
     font-size: 18px;
-    width: 80vw;
+    width: 75vw;
   }
   .inputBox {
-    width: 85vw;
+    width: 90vw;
     font-size: 18px;
     padding: 1.5vh 2vw;
   }
   ul li span {
-    top: 14px;
-    right: -15px;
+    top: 0px;
+    right: 0px;
   }
   .fa:before {
     font-size: 35px;
   }
+  .fa-folder-plus:before {
+    font-size: 100px;
+  }
+  .fa-regular{
+    font-size: 100px;
+  }
 }
-.OnlyList{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+
 /* _________________footer____________________ */
 footer {
   height: 30%;
@@ -318,4 +329,4 @@ footer i {
   footer {
     min-height: 25vh;
   }
-}
+};
