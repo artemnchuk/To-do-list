@@ -17,13 +17,6 @@ const listContainer = document.getElementById("listContainer");
 const toDoInput = document.getElementById("toDoInput");
 const toDoSection= document.getElementById("toDoSection");
 let OnlyList= document.getElementById("OnlyList");
-  function saveData(){
-    localStorage.setItem("data",OnlyList.innerHTML);
-  }
-  function showList(){
-    OnlyList.innerHTML=localStorage.getItem("data");
-  }
-  showList();
 
 // Function to save data to localStorage
 function saveData() {
@@ -33,32 +26,66 @@ function saveData() {
 // Function to load data from localStorage
 function showList() {
   OnlyList.innerHTML = localStorage.getItem("data");
+  addEventListeners(); // Attach event listeners to all existing elements
 }
 
 // Function to add event listeners for task completion and deletion
 function addEventListeners() {
-  let listContainers = document.querySelectorAll('.listContainer');
-  listContainers.forEach(container => {
-    let listItems = container.querySelectorAll('li');
-    listItems.forEach(item => {
-      item.addEventListener('click', function(e) {
-        if (e.target.tagName === "LI") {
-          e.target.classList.toggle("checked");
-          saveData();
-        } else if (e.target.tagName === "SPAN") {
-          e.target.parentElement.remove();
-          saveData();
-        }
-      });
+  // Add event listeners for task completion and deletion to existing lists
+  let listItems = document.querySelectorAll('.listContainer li');
+  listItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      if (e.target.tagName === "LI") {
+        e.target.classList.toggle("checked");
+        saveData();
+      } else if (e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+        saveData();
+      }
     });
   });
 
-  // Add event listener to remove button for each list
-  let removeButtons = document.querySelectorAll('.removeButton');
-  removeButtons.forEach(button => {
+  // Add event listeners for task completion and deletion to new lists
+  let newRemoveButtons = document.querySelectorAll('.removeButton');
+  newRemoveButtons.forEach(button => {
     button.addEventListener('click', function() {
       button.parentElement.remove();
       saveData();
+    });
+  });
+
+  // Add event listener for adding new tasks to new lists
+  let newInputBoxes = document.querySelectorAll('.inputBox');
+  newInputBoxes.forEach(input => {
+    input.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        let task = input.value.trim();
+        if (task !== '') {
+          let liElement = document.createElement('li');
+          liElement.textContent = task;
+
+          let span = document.createElement("span");
+          span.innerHTML = "\u00d7";
+          liElement.appendChild(span);
+
+          let ulElement = input.parentElement.querySelector('.listContainer');
+          ulElement.appendChild(liElement);
+          input.value = '';
+
+          // Add event listener to the newly added list item
+          liElement.addEventListener('click', function(e) {
+            if (e.target.tagName === "LI") {
+              e.target.classList.toggle("checked");
+              saveData();
+            } else if (e.target.tagName === "SPAN") {
+              e.target.parentElement.remove();
+              saveData();
+            }
+          });
+
+          saveData();
+        }
+      }
     });
   });
 }
@@ -78,8 +105,11 @@ function createToDoList() {
 
   // Create remove button
   let removeButton = document.createElement('button');
-  removeButton.textContent = "Remove List";
+  removeButton.textContent = "Remove this List";
   removeButton.className = "removeButton";
+  let iRemoveLiBnt = document.createElement("i");
+  removeButton.appendChild(iRemoveLiBnt);
+  iRemoveLiBnt.className="fa-solid fa-trash-can";
 
   divElement.appendChild(inputElement);
   divElement.appendChild(ulElement);
@@ -114,12 +144,10 @@ function createToDoList() {
   });
 }
 
-// Load existing lists on page load
-document.addEventListener('DOMContentLoaded', function() {
-  showList();
-  addEventListeners(); // Attach event listeners to all existing elements
-});
-
+function removeAllLists() {
+  OnlyList.innerHTML = ''; // Remove all lists from the container
+  localStorage.removeItem("data"); // Clear the localStorage data
+}
 // Create new list button
 let addButton = document.createElement('button');
 addButton.className = "addButton";
@@ -130,6 +158,21 @@ i.className="fa fa-folder-plus";
 i.style.cssText = 'color: white;';
 addButton.addEventListener('click', createToDoList);
 toDoSection.appendChild(addButton);
+
+// Create remove all lists button
+let removeAllButton = document.createElement('button');
+removeAllButton.textContent = "Remove All Lists";
+removeAllButton.className = "removeAllButton"
+let iRemoveBnt = document.createElement("i");
+removeAllButton.appendChild(iRemoveBnt);
+iRemoveBnt.className="fa-solid fa-trash-can";
+removeAllButton.addEventListener('click', removeAllLists);
+toDoSection.appendChild(removeAllButton);
+
+// Load existing lists on page load
+document.addEventListener('DOMContentLoaded', function() {
+  showList();
+});
 
 // Save data on window unload
 window.addEventListener('beforeunload', saveData);
