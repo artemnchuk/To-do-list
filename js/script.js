@@ -22,13 +22,35 @@ let OnlyList= document.getElementById("OnlyList");
 function saveData() {
   localStorage.setItem("data", OnlyList.innerHTML);
 }
-
 // Function to load data from localStorage
 function showList() {
   OnlyList.innerHTML = localStorage.getItem("data");
   addEventListeners(); // Attach event listeners to all existing elements
 }
 
+// Function to save data to localStorage
+function saveData() {
+  localStorage.setItem("data", OnlyList.innerHTML);
+  // Save the input date
+  let inputDate = document.querySelectorAll('.inputDate');
+  let dates = [];
+  inputDate.forEach(date => {
+    dates.push(date.value);
+  });
+  localStorage.setItem("dates", JSON.stringify(dates));
+}
+
+// Function to load data from localStorage
+function showList() {
+  OnlyList.innerHTML = localStorage.getItem("data");
+  // Load and display the input date
+  let storedDates = JSON.parse(localStorage.getItem("dates"));
+  let inputDate = document.querySelectorAll('.inputDate');
+  inputDate.forEach((date, index) => {
+    date.value = storedDates[index];
+  });
+  addEventListeners(); // Attach event listeners to all existing elements
+}
 // Function to add event listeners for task completion and deletion
 function addEventListeners() {
   // Add event listeners for task completion and deletion to existing lists
@@ -102,6 +124,10 @@ function createToDoList() {
 
   let ulElement = document.createElement('ul');
   ulElement.className = "listContainer";
+        let inputDate = document.createElement("input");
+        inputDate.type = "date";
+        inputDate.className = "inputDate";
+        ulElement.appendChild(inputDate);
 
   // Create remove button
   let removeButton = document.createElement('button');
@@ -123,9 +149,8 @@ function createToDoList() {
       if (task !== '') {
         let liElement = document.createElement('li');
         liElement.textContent = task;
-
         let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
+        span.innerHTML = "\u00d7"
         liElement.appendChild(span);
 
         ulElement.appendChild(liElement);
