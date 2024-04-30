@@ -44,3 +44,8 @@ button {
 	cursor: pointer;
 	background-color: inherit;
 }
+nav li,
+nav li::after {
+  list-style: none;
+  cursor: pointer;
+}
