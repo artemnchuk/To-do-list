@@ -35,7 +35,7 @@ nav {
   content: "";
   width: 0%;
   height: 2px;
-  background: black;
+  background: #00adb5;
   display: block;
   margin: auto;
   transition: 0.5s;
@@ -59,7 +59,7 @@ nav li::after {
   content: "";
   width: 0%;
   height: 2px;
-  background: #222831;
+  background: #00adb5;
   display: block;
   margin: auto;
   transition: 0.5s;
@@ -200,6 +200,7 @@ main {
 }
 .addButton:hover {
   color: #e1e1e1;
+  transition: 0.3s;
   border-radius: 50%;
   filter: drop-shadow(4px 4px black);
 }
@@ -208,6 +209,18 @@ main {
 }
 .listContainer:empty{
   border: 0px;
+}
+.removeAllButton{
+  display:block;
+  margin: 10px auto;
+}
+.removeAllButton:hover{
+  color: red;
+  transition: 0.5s;
+}
+.removeButton:hover{
+  color: red;
+  transition: 0.5s;
 }
 .listContainer {
   border: 2px solid black;
