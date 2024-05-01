@@ -231,12 +231,13 @@ function changeTheme() {
     header.classList.toggle("light_mode_header");
     main.classList.toggle("light_mode_main");
     footer.classList.toggle("light_mode_footer");
-    listContainer.classList.toggle("light_mode_listContainer");
+    listContainer.classList.remove("light_mode_listContainer");
     // let content = document.getElementById("DarkModetext");
     // content.classList.toggle("light_mode");
     if(darkButton.textContent=="light_mode"){
       darkButton.textContent="dark_mode";
     }
     else{darkButton.textContent="light_mode";
+    listContainer.classList.add("light_mode_listContainer");
   }
 }
