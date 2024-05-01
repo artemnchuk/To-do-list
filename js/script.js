@@ -15,26 +15,48 @@ function hideMenu() {
 inputBox = document.getElementById("inputBox");
 const listContainer = document.getElementById("listContainer");
 const toDoInput = document.getElementById("toDoInput");
-const toDoSection= document.getElementById("toDoSection");
-let OnlyList= document.getElementById("OnlyList");
+const toDoSection = document.getElementById("toDoSection");
+let OnlyList = document.getElementById("OnlyList");
 
 // Function to save data to localStorage
 function saveData() {
   localStorage.setItem("data", OnlyList.innerHTML);
 }
-
 // Function to load data from localStorage
 function showList() {
   OnlyList.innerHTML = localStorage.getItem("data");
   addEventListeners(); // Attach event listeners to all existing elements
 }
 
+// Function to save data to localStorage
+function saveData() {
+  localStorage.setItem("data", OnlyList.innerHTML);
+  // Save the input date
+  let inputDate = document.querySelectorAll(".inputDate");
+  let dates = [];
+  inputDate.forEach((date) => {
+    dates.push(date.value);
+  });
+  localStorage.setItem("dates", JSON.stringify(dates));
+}
+
+// Function to load data from localStorage
+function showList() {
+  OnlyList.innerHTML = localStorage.getItem("data");
+  // Load and display the input date
+  let storedDates = JSON.parse(localStorage.getItem("dates"));
+  let inputDate = document.querySelectorAll(".inputDate");
+  inputDate.forEach((date, index) => {
+    date.value = storedDates[index];
+  });
+  addEventListeners(); // Attach event listeners to all existing elements
+}
 // Function to add event listeners for task completion and deletion
 function addEventListeners() {
   // Add event listeners for task completion and deletion to existing lists
-  let listItems = document.querySelectorAll('.listContainer li');
-  listItems.forEach(item => {
-    item.addEventListener('click', function(e) {
+  let listItems = document.querySelectorAll(".listContainer li");
+  listItems.forEach((item) => {
+    item.addEventListener("click", function (e) {
       if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked");
         saveData();
@@ -46,34 +68,34 @@ function addEventListeners() {
   });
 
   // Add event listeners for task completion and deletion to new lists
-  let newRemoveButtons = document.querySelectorAll('.removeButton');
-  newRemoveButtons.forEach(button => {
-    button.addEventListener('click', function() {
+  let newRemoveButtons = document.querySelectorAll(".removeButton");
+  newRemoveButtons.forEach((button) => {
+    button.addEventListener("click", function () {
       button.parentElement.remove();
       saveData();
     });
   });
 
   // Add event listener for adding new tasks to new lists
-  let newInputBoxes = document.querySelectorAll('.inputBox');
-  newInputBoxes.forEach(input => {
-    input.addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
+  let newInputBoxes = document.querySelectorAll(".inputBox");
+  newInputBoxes.forEach((input) => {
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
         let task = input.value.trim();
-        if (task !== '') {
-          let liElement = document.createElement('li');
+        if (task !== "") {
+          let liElement = document.createElement("li");
           liElement.textContent = task;
 
           let span = document.createElement("span");
           span.innerHTML = "\u00d7";
           liElement.appendChild(span);
 
-          let ulElement = input.parentElement.querySelector('.listContainer');
+          let ulElement = input.parentElement.querySelector(".listContainer");
           ulElement.appendChild(liElement);
-          input.value = '';
+          input.value = "";
 
           // Add event listener to the newly added list item
-          liElement.addEventListener('click', function(e) {
+          liElement.addEventListener("click", function (e) {
             if (e.target.tagName === "LI") {
               e.target.classList.toggle("checked");
               saveData();
@@ -92,24 +114,28 @@ function addEventListeners() {
 
 // Function to create a new todo list
 function createToDoList() {
-  let divElement = document.createElement('div');
+  let divElement = document.createElement("div");
   divElement.className = "listDiv";
 
-  let inputElement = document.createElement('input');
-  inputElement.setAttribute('type', 'text');
-  inputElement.setAttribute('placeholder', 'Add a new task...');
+  let inputElement = document.createElement("input");
+  inputElement.setAttribute("type", "text");
+  inputElement.setAttribute("placeholder", "Add a new task...");
   inputElement.className = "inputBox";
 
-  let ulElement = document.createElement('ul');
+  let ulElement = document.createElement("ul");
   ulElement.className = "listContainer";
+  let inputDate = document.createElement("input");
+  inputDate.type = "date";
+  inputDate.className = "inputDate";
+  ulElement.appendChild(inputDate);
 
   // Create remove button
-  let removeButton = document.createElement('button');
+  let removeButton = document.createElement("button");
   removeButton.textContent = "Remove this List";
   removeButton.className = "removeButton";
   let iRemoveLiBnt = document.createElement("i");
   removeButton.appendChild(iRemoveLiBnt);
-  iRemoveLiBnt.className="fa-solid fa-trash-can";
+  iRemoveLiBnt.className = "fa-solid fa-trash-can";
 
   divElement.appendChild(inputElement);
   divElement.appendChild(ulElement);
@@ -117,20 +143,28 @@ function createToDoList() {
 
   OnlyList.appendChild(divElement);
 
-  inputElement.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
+  inputElement.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
       let task = inputElement.value.trim();
-      if (task !== '') {
-        let liElement = document.createElement('li');
-        liElement.textContent = task;
-
+      if (task == "lorem") {
+        let liElement = document.createElement("li");
+        liElement.textContent =
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolorem ratione amet harum! Minus, iste error. Officia modi similique sequi repellat cupiditate fugiat odit, ex id facilis, ducimus quos sunt?";
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
         liElement.appendChild(span);
-
         ulElement.appendChild(liElement);
-        inputElement.value = '';
-
+        inputElement.value = "";
+        addEventListeners(); // Add event listeners to the newly added list item
+        saveData();
+      } else if (task !== "") {
+        let liElement = document.createElement("li");
+        liElement.textContent = task;
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7";
+        liElement.appendChild(span);
+        ulElement.appendChild(liElement);
+        inputElement.value = "";
         addEventListeners(); // Add event listeners to the newly added list item
         saveData();
       }
@@ -138,50 +172,70 @@ function createToDoList() {
   });
 
   // Add event listener to new remove button
-  removeButton.addEventListener('click', function() {
+  removeButton.addEventListener("click", function () {
     divElement.remove();
     saveData();
   });
 }
 
 function removeAllLists() {
-  OnlyList.innerHTML = ''; // Remove all lists from the container
+  OnlyList.innerHTML = ""; // Remove all lists from the container
   localStorage.removeItem("data"); // Clear the localStorage data
 }
 // Create new list button
-let addButton = document.createElement('button');
+let addButton = document.createElement("button");
 addButton.className = "addButton";
-addButton.style.cssText = 'display:block;margin: 0 auto;';
+addButton.style.cssText = "display:block;margin: 0 auto;";
 let i = document.createElement("i");
 addButton.appendChild(i);
-i.className="fa fa-folder-plus";
-i.style.cssText = 'color: white;';
-addButton.addEventListener('click', createToDoList);
+i.className = "fa fa-folder-plus";
+i.style.cssText = "color: white;";
+addButton.addEventListener("click", createToDoList);
 toDoSection.appendChild(addButton);
 
 // Create remove all lists button
-let removeAllButton = document.createElement('button');
+let removeAllButton = document.createElement("button");
 removeAllButton.textContent = "Remove All Lists";
-removeAllButton.className = "removeAllButton"
+removeAllButton.className = "removeAllButton";
 let iRemoveBnt = document.createElement("i");
 removeAllButton.appendChild(iRemoveBnt);
-iRemoveBnt.className="fa-solid fa-trash-can";
-removeAllButton.addEventListener('click', removeAllLists);
+iRemoveBnt.className = "fa-solid fa-trash-can";
+removeAllButton.addEventListener("click", removeAllLists);
 toDoSection.appendChild(removeAllButton);
 
 // Load existing lists on page load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   showList();
 });
 
 // Save data on window unload
-window.addEventListener('beforeunload', saveData);
+window.addEventListener("beforeunload", saveData);
 
-  let docTitle = document.title;
-  let faviconImg = document.getElementById("favicon");
-  window.addEventListener("blur", () => {document.title = "Come back 👀";
-  faviconImg.setAttribute("href","/img/favicon2.png");
-  })
-  window.addEventListener("focus", () =>{document.title = docTitle;
-  faviconImg.setAttribute("href","/img/favicon.png");
-  })
+let docTitle = document.title;
+let faviconImg = document.getElementById("favicon");
+window.addEventListener("blur", () => {
+  document.title = "Come back 👀";
+  faviconImg.setAttribute("href", "/img/favicon2.png");
+});
+window.addEventListener("focus", () => {
+  document.title = docTitle;
+  faviconImg.setAttribute("href", "/img/favicon.png");
+});
+let header = document.getElementById("header");
+let main = document.getElementById("main");
+let footer = document.getElementById("footer");
+let darkButton = document.getElementById("theme");
+function changeTheme() {
+    navLinks.classList.toggle("light_mode_navLinks");
+    header.classList.toggle("light_mode_header");
+    main.classList.toggle("light_mode_main");
+    footer.classList.toggle("light_mode_footer");
+    // let content = document.getElementById("DarkModetext");
+    // content.classList.toggle("light_mode");
+    if(darkButton.textContent=="light_mode"){
+      darkButton.textContent="dark_mode";
+    }
+    else{darkButton.textContent="light_mode";
+  }
+
+}
