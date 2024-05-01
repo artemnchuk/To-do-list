@@ -13,7 +13,6 @@ function hideMenu() {
 }
 /*---------To-do list ----------*/
 inputBox = document.getElementById("inputBox");
-const listContainer = document.getElementById("listContainer");
 const toDoInput = document.getElementById("toDoInput");
 const toDoSection = document.getElementById("toDoSection");
 let OnlyList = document.getElementById("OnlyList");
@@ -124,6 +123,7 @@ function createToDoList() {
 
   let ulElement = document.createElement("ul");
   ulElement.className = "listContainer";
+  ulElement.id = 'listContainer';
   let inputDate = document.createElement("input");
   inputDate.type = "date";
   inputDate.className = "inputDate";
@@ -225,11 +225,13 @@ let header = document.getElementById("header");
 let main = document.getElementById("main");
 let footer = document.getElementById("footer");
 let darkButton = document.getElementById("theme");
+// let listContainer = document.getElementById("listContainer");
 function changeTheme() {
     navLinks.classList.toggle("light_mode_navLinks");
     header.classList.toggle("light_mode_header");
     main.classList.toggle("light_mode_main");
     footer.classList.toggle("light_mode_footer");
+    listContainer.classList.toggle("light_mode_listContainer");
     // let content = document.getElementById("DarkModetext");
     // content.classList.toggle("light_mode");
     if(darkButton.textContent=="light_mode"){
@@ -237,5 +239,4 @@ function changeTheme() {
     }
     else{darkButton.textContent="light_mode";
   }
-
 }
