@@ -12,7 +12,7 @@
   </head>
   <body>
   <div class="wrapper">
-    <header class="header">
+    <header class="header" id="header">
         <nav>
             <div class="logo"><a href="https://www.github.com/artemnchuk"><i class="fa-brands fa-github">ARTEMNCHUK</i></a></div>
             <div class="nav-links" id="navLinks">
@@ -21,20 +21,23 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#footer">About</a></li>
                 <li><a href="https://github.com/artemnchuk">Github</a></li>
-            </ul>
+                <button class="theme" onclick="changeTheme()"><span class="material-symbols-outlined" id="theme">
+                  light_mode
+                  </span></button>
+           </ul>           
             <i class="fa fa-bars" id ="faBars" onclick="showMenu()"></i>
             </div>
         </nav>
       <div class="text-box">
-        <h1>Time to take notes</h1>
+        <h1 class="aaa">Time to take notes</h1>
         <a href="https://www.github.com/artemnchuk" class="hero-btn">My Github</a>
       </div>
     </header>
-    <main class="main">
+    <main class="main" id="main">
       <section class="toDoSection" id="toDoSection">
         <label class="label">To-do List</label>
           <div class="listDiv" id="listDiv">
-            <h2>Click the button to start</h2>
+            <h2 class="light_mode">Click the button to start</h2>
             <div class="OnlyList" id="OnlyList"></div>
           </div>
       </section>

@@ -15,10 +15,10 @@ body {
 }
 main {
   flex-grow: 1;
-  background-color: wheat;
+  background-color: white;
 }
-[class*="listStyle"] {
-}
+/* [class*="listStyle"] {
+} */
 /*header*/
 header {
   max-height: 30vh;
@@ -29,13 +29,19 @@ header {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1%;
+}
+.logo {
+  background-color: #1d222a;
+  padding: 5px;
+  border-radius: 5px;
 }
 .logo a::after {
   content: "";
   width: 0%;
   height: 2px;
-  background: #00adb5;
+  background: #0053d0;
   display: block;
   margin: auto;
   transition: 0.5s;
@@ -54,18 +60,27 @@ nav li {
   list-style: none;
   font-size: 20px;
   cursor: pointer;
+  background-color: #1d222a;
+  padding: 5px;
+  border-radius: 5px;
+}
+nav li:hover {
+  background-color: black;
 }
 nav li::after {
   content: "";
   width: 0%;
   height: 2px;
-  background: #00adb5;
+  background: #0053d0;
   display: block;
   margin: auto;
   transition: 0.5s;
 }
 nav li:hover::after {
   width: 100%;
+}
+.nav-links{
+  display: flex;
 }
 .text-box {
   display: flex;
@@ -86,10 +101,11 @@ nav li:hover::after {
   border-radius: 10px;
   padding: 15px 40px;
   cursor: pointer;
+  transition: 0.7s;
 }
 .hero-btn:hover {
   border: 2px solid;
-  background: #00adb5;
+  background: #0053d0;
   color: white;
   transition: 0.5s;
 }
@@ -98,7 +114,6 @@ nav .fa {
 }
 .fa-regular{
   height: 50px;
-
 }
 @media screen and (max-width: 700px) {
   header {
@@ -113,7 +128,7 @@ nav .fa {
   }
   .nav-links {
     position: absolute;
-    background-color: #00adb5;
+    background-color: #0053d0;
     min-height: 30vh;
     width: 25vw;
     border-bottom-left-radius: 100%;
@@ -149,7 +164,7 @@ nav .fa {
 }
 /* components */
 main {
-  background: url(/img/bg-list.svg);
+  background-color: #1d222a;
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
@@ -195,16 +210,17 @@ main {
 .input-container {
   display: flex;
 }
-.addButton {
+.fa-folder-plus::before {
   color: #c4c4c4;
+  transition: 0.5s;
 }
-.addButton:hover {
-  color: #e1e1e1;
-  transition: 0.3s;
+.fa-folder-plus:hover::before {
+  color: #e6e5e5;
+  transition: 0.5s;
   border-radius: 50%;
   filter: drop-shadow(4px 4px black);
 }
-.addButton:active {
+.fa-folder-plus:active::before {
   color: #ffffff;
 }
 .listContainer:empty{
@@ -213,10 +229,14 @@ main {
 .removeAllButton{
   display:block;
   margin: 10px auto;
+  transition: 0.7s;
 }
 .removeAllButton:hover{
   color: red;
   transition: 0.5s;
+}
+.removeButton{
+  transition: 0.7s;
 }
 .removeButton:hover{
   color: red;
@@ -258,7 +278,7 @@ ul li.checked::before {
 }
 ul li span {
   position: absolute;
-  right: 0vw;
+  right: 0px;
   top: 0px;
   width: 50px;
   font-size: 50px;
@@ -278,10 +298,11 @@ ul li span:hover {
 }
 .inputDate{
   background-color: transparent;
-  color:#00adb5;
+  color:#0053d0;
   display: block;
   margin: auto;
   font-family:'Times New Roman', Times, serif;
+  padding: 0 5px;
 }
 @media screen and (max-width: 700px) {
   .toDoSection {
@@ -298,6 +319,7 @@ ul li span:hover {
     left: -1.5vw;
   }
   .listContainer {
+    max-width: max-content;
     margin: 10px auto;
   }
   .listContainer li {
@@ -311,7 +333,7 @@ ul li span:hover {
   }
   ul li span {
     top: 0px;
-    right: -15px;
+    right: -5px;
   }
   .fa:before {
     font-size: 35px;
@@ -330,16 +352,16 @@ footer {
   text-align: center;
   min-width: 100vw;
   padding: 10px 0;
-  background-color: #00adb5;
+  background-color: #222831;
 }
 footer p {
   margin: 5px;
   color: 393e46;
 }
 footer a {
-  background: #d5d5d5;
+  background: white;
   border-radius: 50%;
-  color: #00adb5;
+  color: #1d222a;
   padding: 10px;
 }
 footer i {
@@ -349,4 +371,33 @@ footer i {
   footer {
     min-height: 25vh;
   }
-};
+}
+
+.light_mode_header{
+  background-color: gainsboro;
+  color: green;
+}
+.light_mode_main{
+  background-color: #e6e5e5;
+  color: green;
+}
+.light_mode_footer{
+  background-color: #eee;
+  color: green;
+}
+.light_mode_navLinks{
+  background-color: #eee;
+  color: green;
+}
+.material-symbols-outlined {
+  background-color: #222831;
+  border-radius: 50%;
+  border: 5px solid #1d222a;
+  transition: 1.5s;
+}
+.material-symbols-outlined:hover {
+  background-color: black;
+  border: 5px solid black;
+  transform: rotate(360deg);
+  transition: 1.5s;
+}
