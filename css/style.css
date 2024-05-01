@@ -106,7 +106,6 @@ nav li:hover::after {
 .hero-btn:hover {
   border: 2px solid;
   background: #0053d0;
-  color: white;
   transition: 0.5s;
 }
 nav .fa {
@@ -140,7 +139,6 @@ nav .fa {
   }
   nav .fa {
     display: block;
-    color: white;
     font-size: 15px;
     cursor: pointer;
     position: absolute;
@@ -211,7 +209,7 @@ main {
   display: flex;
 }
 .fa-folder-plus::before {
-  color: #c4c4c4;
+  color: #d3d3d3;
   transition: 0.5s;
 }
 .fa-folder-plus:hover::before {
@@ -356,38 +354,47 @@ footer {
 }
 footer p {
   margin: 5px;
-  color: 393e46;
+  color: #e6e5e5;
 }
 footer a {
   background: white;
   border-radius: 50%;
   color: #1d222a;
   padding: 10px;
+  transition: 0.6s;
 }
 footer i {
-  padding: 10px 5px;
+  padding: 10px 1px;
+}
+footer a:hover {
+background-color: #222831;
+color: #D8AE7E;
+transition: 0.6s;
 }
 @media screen and (max-width: 700px) {
   footer {
     min-height: 25vh;
   }
 }
-
 .light_mode_header{
-  background-color: gainsboro;
-  color: green;
+  background-color: #FFE0B5;
+  color: #AFD198;
 }
 .light_mode_main{
-  background-color: #e6e5e5;
-  color: green;
+  background-color: #F8C794;
+  color: #E8EFCF;
 }
 .light_mode_footer{
-  background-color: #eee;
-  color: green;
+  background-color: #D8AE7E;
+  color: #E8EFCF;
 }
 .light_mode_navLinks{
-  background-color: #eee;
-  color: green;
+  background-color: #FFE0B5;
+  color: #D8AE7E;
+}
+.light_mode_listContainer{
+  background-color: #FFE0B5;
+  color: #D8AE7E;
 }
 .material-symbols-outlined {
   background-color: #222831;
