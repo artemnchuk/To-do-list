@@ -225,18 +225,34 @@ let header = document.getElementById("header");
 let main = document.getElementById("main");
 let footer = document.getElementById("footer");
 let darkButton = document.getElementById("theme");
-// let listContainer = document.getElementById("listContainer");
-function changeTheme() {
-    navLinks.classList.toggle("light_mode_navLinks");
-    header.classList.toggle("light_mode_header");
-    main.classList.toggle("light_mode_main");
-    footer.classList.toggle("light_mode_footer");
-    listContainer.classList.toggle("light_mode_listContainer");
-    // let content = document.getElementById("DarkModetext");
-    // content.classList.toggle("light_mode");
-    if(darkButton.textContent=="light_mode"){
-      darkButton.textContent="dark_mode";
-    }
-    else{darkButton.textContent="light_mode";
+let theme = localStorage.getItem("CurrentTheme");
+if(theme == "dark"){
+  darkButton.textContent="dark_mode";
   }
+else if(theme == "light"){
+  darkButton.textContent="light_mode";
+  navLinks.classList.add("light_mode_navLinks");
+  header.classList.add("light_mode_header");
+  main.classList.add("light_mode_main");
+  footer.classList.add("light_mode_footer");
+}
+function changeTheme() {
+    if(theme == "dark"){
+      darkButton.textContent="light_mode";
+      navLinks.classList.add("light_mode_navLinks");
+      header.classList.add("light_mode_header");
+      main.classList.add("light_mode_main");
+      footer.classList.add("light_mode_footer");
+      theme = "light";
+      localStorage.setItem("CurrentTheme", theme);
+      }
+    else if(theme == "light"){
+      darkButton.textContent="dark_mode";
+        navLinks.classList.remove("light_mode_navLinks");
+        header.classList.remove("light_mode_header");
+        main.classList.remove("light_mode_main");
+        footer.classList.remove("light_mode_footer");
+        theme = "dark";
+        localStorage.setItem("CurrentTheme", theme);
+    }
 }

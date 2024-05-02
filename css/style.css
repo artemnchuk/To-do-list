@@ -392,10 +392,10 @@ transition: 0.6s;
   background-color: #FFE0B5;
   color: #D8AE7E;
 }
-.light_mode_listContainer{
+/* .light_mode_listContainer{
   background-color: #FFE0B5;
   color: #D8AE7E;
-}
+} */
 .material-symbols-outlined {
   background-color: #222831;
   border-radius: 50%;
