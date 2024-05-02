@@ -214,7 +214,7 @@ window.addEventListener("beforeunload", saveData);
 let docTitle = document.title;
 let faviconImg = document.getElementById("favicon");
 window.addEventListener("blur", () => {
-  document.title = "Come back 👀";
+  document.title = "Time to take notes👀";
   faviconImg.setAttribute("href", "/img/favicon2.png");
 });
 window.addEventListener("focus", () => {
